@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 def crawl_website():
     logger.info('start crawl')
     song_list = get_song_list()
+    count = 0
     for name, link in song_list:
         
         song_data = get_song_data(link)
@@ -26,4 +27,8 @@ def crawl_website():
                                         song=new_song)
             new_difficulty.save()
         time.sleep(5)
+
+        count += 1
+        if count > 5:
+            break
         

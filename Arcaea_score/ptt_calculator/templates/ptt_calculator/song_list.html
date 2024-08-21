@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌曲列表</title>
+</head>
+<body>
+    <h1>歌曲列表</h1>
+    <table>
+        <!-- 假設 song_list 是後端傳遞過來的，包含每首歌的 title -->
+        {% for song in song_list %}
+        <tr>
+            <td>
+                <h2>{{ song.title }}</h2>
+                <img src="{{ song.img_url }}">
+            </td>
+            {% for difficulty in song.difficulty_set.all %}
+            <td>
+                <h3>{{ difficulty.level }}</h3>
+                <h4>{{ difficulty.note }}</h4>
+                <h4>{{ difficulty.chart_constant }}</h4>
+            </td>
+            {% endfor %}
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
