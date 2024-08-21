@@ -2,12 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-PST = "past"
-PRS = "present"
-FTR = "future"
-ETR = "eternal"
-BYD = "beyond"
-
+PST = "Past"
+PRS = "Present"
+FTR = "Future"
+ETR = "Eternal"
+BYD = "Beyond"
+MOM = "Moment"
+ETE = "Eternity"
 
 class Song(models.Model):
     title = models.CharField(max_length=50)
@@ -18,11 +19,13 @@ class Song(models.Model):
 class Difficulty(models.Model):
     
     LEVEL_CHOICES = [
-        (PST, "Past"),
-        (PRS, "Present"),
-        (FTR, "Future"),
-        (ETR, "Eternal"),
-        (BYD, "Beyond"),
+        (PST, "PST"),
+        (PRS, "PRS"),
+        (FTR, "FTR"),
+        (ETR, "ETR"),
+        (BYD, "BYD"),
+        (MOM, "MOM"),
+        (ETE, "ETE"),
     ]
     level = models.CharField(max_length=10, choices=LEVEL_CHOICES)
     note = models.IntegerField()

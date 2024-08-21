@@ -81,5 +81,3 @@ def get_note(soup, levels : list):
 def get_img_source(soup):
     img_src = soup.find('div', class_ = "floatnone").find('img').get('src')
     return ARCAEA_SONGS_URL + img_src
-
-get_song_data("/ALTER_EGO")
