@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song List</title>
+    <link rel="stylesheet" href="{% static 'ptt_calculator/css/edit_song.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="song-list">
+            {% for song in song_list %}
+            {% if song.title == choice_song.title %}
+            <a href="/ptt_calculator/{{ song.title }}" class="song-button active">
+                <img src="{{ song.img_url }}" alt="{{ song.title }}">
+                <span class="title">{{ song.title }}</span>
+            </a>
+            {% else %}
+            <a href="/ptt_calculator/{{ song.title }}" class="song-button">
+                <img src="{{ song.img_url }}" alt="{{ song.title }}">
+                <span class="title">{{ song.title }}</span>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

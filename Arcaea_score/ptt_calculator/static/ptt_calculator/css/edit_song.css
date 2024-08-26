@@ -1,0 +1,47 @@
+/* Container設置 */
+body {
+    font-family: Arial, sans-serif;
+
+}
+a {
+    text-decoration:none;
+}
+
+.container {
+    height: 900px;
+    width: 50%;
+    overflow-y: auto;  /* 當內容超過容器高度時，顯示滾動條 */
+    border: 1px solid #ccc;  /* 添加邊框以便查看容器大小 */
+    padding: 10px;
+}
+
+/* 基本按鈕樣式 */
+.song-button {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: none;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.song-button img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.song-button .title {
+    
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 按下時的視覺效果 */
+.song-button.active {
+    transform: scale(0.95);
+    background-color: #e0e0e0;
+}

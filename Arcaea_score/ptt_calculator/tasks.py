@@ -3,7 +3,7 @@ import time
 import logging
 
 
-from .utils import get_song_data, get_song_list
+from .crawler import get_song_data, get_song_list
 from .models import Song, Difficulty
 
 logger = logging.getLogger(__name__)
