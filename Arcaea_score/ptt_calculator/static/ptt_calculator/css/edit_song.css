@@ -1,25 +1,42 @@
 /* Container設置 */
 body {
     font-family: Arial, sans-serif;
-
+    background-color: #1e1e2e; /* 黑色背景 */
+    color: #e0e0e0; /* 白色文字 */
+    margin: 0;
+    padding: 0;
 }
 a {
     text-decoration:none;
+    color: inherit; /* 讓連結文字顏色繼承 */
 }
 
-.container {
-    height: 900px;
+.main-container {
+    display: flex;
+    height: 90vh; /* 限制高度為視窗高度的90% */
+    max-height: 90vh; /* 避免內容超出視窗範圍 */
+    border: 2px solid #d3d3d3; 
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+
+.left-container {
+    height: 100%;
     width: 50%;
-    overflow-y: auto;  /* 當內容超過容器高度時，顯示滾動條 */
-    border: 1px solid #ccc;  /* 添加邊框以便查看容器大小 */
+    overflow-y: auto;
+    border-right: 2px solid #d3d3d3; 
     padding: 10px;
 }
+
 
 /* 基本按鈕樣式 */
 .song-button {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #f0e6ff; /* 深紫色背景 */
     border: none;
     margin: 10px 0;
     padding: 10px;
@@ -37,11 +54,91 @@ a {
     
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #2e2e4d; /* 淡紫色文字 */
 }
 
 /* 按下時的視覺效果 */
 .song-button.active {
     transform: scale(0.95);
-    background-color: #e0e0e0;
+    background-color: #726a7d; /* 深紫色按鈕 */
+}
+
+/* Right container (Song details) */
+.right-container {
+    width: 50%;
+    padding: 20px;
+    background-color: #2e2e4d; /* 深紫色背景 */
+    overflow-y: auto;
+}
+
+.song-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f0e6ff; 
+     
+}
+
+th, td {
+    border: 1px solid #9a9a9a; /* 更淺的紫色邊框 */
+    padding: 10px;
+    text-align: left;
+    color: #3f3f3f;
+}
+
+th {
+    background-color: #41375c;
+    color: #f0e6ff;
+}
+button[type="submit"] {
+    background-color: #f0e6ff; /* 深紫色背景 */
+    color: #5e5e5e; /* 淡紫色文字 */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+button[type="submit"]:hover {
+    background-color: #ada7b6; /* 應對hover的顏色 */
+}
+
+/* Header container for centering */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #2e2e4d; /* 深紫色背景 */
+}
+
+.back-button {
+    background-color: #f0e6ff; /* 深紫色背景 */
+    color: #5e5e5e; /* 淡紫色文字 */
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ada7b6; /* 深紫色hover效果 */
+}
+
+.header h1 {
+    margin: 0;
+    color: #f0e6ff; /* 淡紫色文字 */
+    font-size: 24px;
+    text-align: center;
+    flex-grow: 1;
 }
