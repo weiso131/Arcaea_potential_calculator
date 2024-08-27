@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊帳號</title>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var checkPassword = document.getElementById("check_password").value;
+            var errorMessage = document.getElementById("error_message");
+
+            if (password !== checkPassword) {
+                errorMessage.innerText = "密碼不一致，請重新輸入。";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>註冊帳號</h2>
+    <form action="{% url 'register' %}" method="post" onsubmit="return validateForm();">
+        {% csrf_token %}
+        <label for="username">用戶名稱:</label>
+        <input type="text" name="username" id="username" required><br/><br/>
+        
+        <label for="password">密碼:</label>
+        <input type="password" name="password" id="password" required><br/><br/>
+        
+        <label for="check_password">確認密碼:</label>
+        <input type="password" name="check_password" id="check_password" required><br/><br/>
+        
+        <input type="submit" value="註冊">
+    </form>
+    
+    <p id="error_message" style="color:red;"></p>
+</body>
+</html>
