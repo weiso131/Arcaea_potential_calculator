@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="/previous_page" class="back-button">返回</a>
+        <a href="/ptt_calculator" class="back-button">返回</a>
         <h1>編輯遊玩紀錄</h1>
     </div>
     
@@ -18,12 +18,12 @@
             <div class="song-list">
                 {% for song in song_list %}
                 {% if song.title == choice_song.title %}
-                <a href="/ptt_calculator/{{ song.title }}" class="song-button active">
+                <a href="/ptt_calculator/edit_song_list/{{ song.title }}" class="song-button active">
                     <img src="{{ song.img_url }}" alt="{{ song.title }}">
                     <span class="title">{{ song.title }}</span>
                 </a>
                 {% else %}
-                <a href="/ptt_calculator/{{ song.title }}" class="song-button">
+                <a href="/ptt_calculator/edit_song_list/{{ song.title }}" class="song-button">
                     <img src="{{ song.img_url }}" alt="{{ song.title }}">
                     <span class="title">{{ song.title }}</span>
                 </a>
@@ -35,7 +35,7 @@
         <div class="right-container">
             <h2>{{ choice_song.title }}</h2>
             <img src="{{ choice_song.img_url }}" alt="{{ choice_song.title }}" class="song-image">
-            <form method="post" action="/ptt_calculator/update_difficulty/">
+            <form method="post" action="/ptt_calculator/edit_song_list/update_history/">
                 {% csrf_token %}
                 <table>
                     <tr>

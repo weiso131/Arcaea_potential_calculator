@@ -4,6 +4,13 @@ from django.urls import reverse
 from .models import Song
 from .utils import get_song_history_data
 
+def index(request):
+    user_data = {"user_name" : "teddy", "login" : False}
+    if request.user.is_authenticated:
+        user_data["user_name"] = request.user.username
+        user_data["login"] = True
+    return render(request, 'ptt_calculator/index.html', user_data)
+
 
 def edit_song_list(request):
     """

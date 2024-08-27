@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    
+</head>
+<body>
+    <div>
+        <h1>Arcaea PTT分數計算器</h1>
+        {% if login %}
+            <h4>{{ user_name }}</h4>
+            <a href="/user_app/logout">登出</a>   
+        {% else %}
+            <a href="user_app/register">註冊</a>
+            <a href="/user_app/login">登入</a>
+        {% endif %}   
+    </div>
+    <div>
+        <a href="/ptt_calculator/edit_song_list">修改資料</a>
+
+    </div>
+    
+</body>
+</html>
