@@ -35,7 +35,7 @@
         <div class="right-container">
             <h2>{{ choice_song.title }}</h2>
             <img src="{{ choice_song.img_url }}" alt="{{ choice_song.title }}" class="song-image">
-            <form method="post" action="/ptt_calculator/edit_song_list/update_history/">
+            <form method="post" action="/ptt_calculator/edit_song_list/{{ choice_song.title }}/">
                 {% csrf_token %}
                 <table>
                     <tr>

@@ -10,6 +10,8 @@ BYD = "Beyond"
 MOM = "Moment"
 ETE = "Eternity"
 
+
+
 class Song(models.Model):
     title = models.CharField(max_length=50)
     img_url = models.CharField(max_length=120)
@@ -32,6 +34,14 @@ class Difficulty(models.Model):
     chart_constant = models.FloatField()
     song = models.ForeignKey(Song, on_delete=models.CASCADE)
 
+class Record(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    record = models.IntegerField()
+    score = models.FloatField()
+    difficulty = models.ForeignKey(Difficulty, on_delete=models.DO_NOTHING)
+
+    
+    
 
 
 

@@ -69,8 +69,8 @@ def edit_password(request):
         return render(request, 'user_app/edit_password.html', context={"wrong_password" : False})
     else:
         user = request.user
-        password = request.POST.get('password', '')
-        new_password = request.POST.get('new_password', '')
+        password = request.POST['password']
+        new_password = request.POST['new_password']
 
         if not check_password(password, user.password):
             return render(request, 'user_app/edit_password.html', context={"wrong_password" : True})
