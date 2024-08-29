@@ -33,10 +33,9 @@ def edit_add_record(song : Song, request):
             continue
         try:
             record = difficulty.record_set.get(user=request.user)
-            if player_record > record.record:
-                record.record = player_record
-                record.score = get_score(player_record, difficulty.chart_constant)
-                record.save()
+            record.record = player_record
+            record.score = get_score(player_record, difficulty.chart_constant)
+            record.save()
         except Record.DoesNotExist:
             new_record = Record(user=request.user, \
                                     difficulty=difficulty, \
@@ -48,6 +47,35 @@ def get_score(record : int, chart_constant : float):
     if record > 10000000:
         return chart_constant + 2
     elif record > 9800000:
-        return chart_constant + 1 + record / 200000
+        return chart_constant + 1 + (record - 9800000) / 200000
     else:
-        return chart_constant + (9500000 - record) / 300000
+        return chart_constant + (record - 9500000) / 300000
+
+def get_best_30(request):
+    user = request.user
+    best_30 = Record.objects.filter(user=user).order_by('-score')
+    record_take_num = min(30, len(best_30))
+
+    
+    return get_best_30_matrix(best_30[:record_take_num])
+
+def get_best_30_matrix(best_30):
+    best_30_matrix = []
+    for i in range(5):
+        best_30_matrix.append([])
+        for j in range(6):
+            if 6 * i + j >= len(best_30):
+                break
+            difficulty = best_30[6 * i + j].difficulty
+            song = difficulty.song
+
+            data = {
+                "title" : song.title,
+                "img" : song.img_url,
+                "chart_constant" : difficulty.chart_constant,
+                "level" : difficulty.level,
+                "score" : round(best_30[6 * i + j].score, 5),
+                "record" : best_30[6 * i + j].record
+            }
+            best_30_matrix[i].append(data)
+    return best_30_matrix

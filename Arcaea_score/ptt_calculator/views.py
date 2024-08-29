@@ -2,15 +2,16 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from .models import Song
-from .utils import get_song_history_data, edit_add_record
+from .utils import get_song_history_data, edit_add_record, get_best_30
 
 
 
 def index(request):
-    user_data = {"user_name" : "teddy", "login" : False}
+    user_data = {"user_name" : "teddy", "login" : False, "best_30" : []}
     if request.user.is_authenticated:
         user_data["user_name"] = request.user.username
         user_data["login"] = True
+        user_data["best_30"] = get_best_30(request)
     return render(request, 'ptt_calculator/index.html', user_data)
 
 

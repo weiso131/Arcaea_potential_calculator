@@ -20,6 +20,27 @@
             <a href="/user_app/login">登入</a>
         {% endif %}   
     </div>
+    <div>
+        {% if login %}
+        <table id="dataTable">
+            <tbody>
+                {% for row_b30 in best_30 %}
+                <tr>
+                    {% for b30 in row_b30 %}
+                    <td>
+                        <h3>{{ b30.title}}</h3>
+                        <img src="{{ b30.img}}">
+                        <h4>{{ b30.record }}</h4>
+                        <h5>{{ b30.chart_constant }} -> {{ b30.score }}</h5>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     
+        
+        {% endif %}
+    </div>
 </body>
 </html>
