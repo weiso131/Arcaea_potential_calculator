@@ -31,3 +31,10 @@ python manage.py process_tasks
 python manage.py runserver
 ```
 
+## demo
+### home page of user
+![image](https://github.com/user-attachments/assets/99655d69-f61b-4188-a0ab-963e577f4357)
+
+### edit playing history
+![image](https://github.com/user-attachments/assets/98a39fc7-de1c-4eeb-8601-1ca5b52b7124)
+
