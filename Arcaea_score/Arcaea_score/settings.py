@@ -133,7 +133,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'C:/Users/black/Desktop/Arcaea_potential_calculator/Arcaea_score/task.log',
+            'filename': '/mnt/c/Users/weiso131/Desktop/Arcaea_potential_calculator/Arcaea_score/Arcaea_score/task.log',
         },
     },
     'root': {

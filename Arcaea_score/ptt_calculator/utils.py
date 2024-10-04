@@ -29,7 +29,7 @@ def edit_add_record(song : Song, request):
     for difficulty in difficultys:
         
         player_record = int(form_input[difficulty.level])
-        if player_record == 0:
+        if player_record < 0:
             continue
         try:
             record = difficulty.record_set.get(user=request.user)
@@ -49,7 +49,7 @@ def get_score(record : int, chart_constant : float):
     elif record > 9800000:
         return chart_constant + 1 + (record - 9800000) / 200000
     else:
-        return chart_constant + (record - 9500000) / 300000
+        return max(0, chart_constant + (record - 9500000) / 300000)
 
 def get_best_30(request):
     user = request.user
