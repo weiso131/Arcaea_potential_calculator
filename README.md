@@ -17,6 +17,25 @@ python manage.py migrate
 ```
 
 ## Use crawl to get song data
+- change the Arcaea_score/Arcaea_score/settings.py log filename
+```
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'your path of task.log',
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+}
+```
+
 - open a terminal
 ```
 python manage.py start_crawl
